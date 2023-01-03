@@ -9,7 +9,7 @@ import {
   Nav,
   Navbar,
 } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { CartState } from "../context/Context";
 import "./styles.css";
 
@@ -24,7 +24,7 @@ const Header = () => {
     <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
       <Container>
         <Navbar.Brand>
-          <Link to="/">Shopping Cart</Link>
+          <NavLink to="/">Shopping Cart</NavLink>
         </Navbar.Brand>
         {useLocation().pathname.split("/")[1] !== "cart" && (
           <Navbar.Text className="search">
@@ -77,11 +77,11 @@ const Header = () => {
                       />
                     </span>
                   ))}
-                  <Link to="/cart">
+                  <NavLink to="/cart">
                     <Button style={{ width: "95%", margin: "0 10px" }}>
                       Go To Cart
                     </Button>
-                  </Link>
+                  </NavLink>
                 </>
               ) : (
                 <span style={{ padding: 10 }}>Cart is Empty!</span>

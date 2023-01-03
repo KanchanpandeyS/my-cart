@@ -1,20 +1,27 @@
 import "./App.css";
 import Header from "./components/Header";
-import { BrowserRouter, Route, withRouter } from "react-router-dom";
 import Home from "./components/Home";
 import Cart from "./components/Cart";
+import { Redirect, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
-    <Header />
-    <div className="App">
-      
-
-      <Route exact path="/" component={withRouter(Home)} />
-      <Route exact  path="/cart" component={withRouter(Cart)} />
-    </div>
-  </BrowserRouter>
+   <>
+   <Header/>
+   <div className="App">
+    <Switch>
+      <Route path="/" exact>
+        <Redirect to="/Home"/>
+      </Route>
+      <Route path="/Home">
+        <Home/>
+      </Route>
+      <Route path="/cart" exact>
+        <Cart/>
+      </Route>
+    </Switch>
+   </div>
+   </>
   );
 }
 
